@@ -5,11 +5,13 @@ CONFIG -= qt
 
 SOURCES += main.cpp \
     gamemasterapp.cpp \
-    configfile.cpp
+    configfile.cpp \
+    configfilelua.cpp
 INCLUDEPATH += Lua/Lua.5.2.0/src
 INCLUDEPATH += LuaBridge
 LIBS += -llua5.2
 
 HEADERS += \
     gamemasterapp.h \
-    configfile.h
+    configfile.h \
+    configfilelua.h

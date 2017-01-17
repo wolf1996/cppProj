@@ -7,7 +7,7 @@
 
 #include <LuaBridge.h>
 
-#include <configfile.h>
+#include "configfile.h"
 
 extern "C" {
     # include "lua.h"
@@ -22,6 +22,7 @@ class GameMasterApp
     std::shared_ptr<ConfigFile> config_;
 public:
     GameMasterApp();
+    void OpenConfig(const std::string& filename);
 };
 
 #endif // GAMEMASTERAPP_H

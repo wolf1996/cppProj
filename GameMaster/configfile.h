@@ -8,13 +8,14 @@
 
 class ConfigFile
 {
+protected:
     ConfigFile(){
 
     }
+    virtual void Open(const std::string& ) = 0;
 public:
     virtual ~ConfigFile(){
     }
-    virtual void OpenFile();
     virtual std::string GetVarFileName() = 0;
     virtual std::string GetCodeFileName() = 0;
     static ConfigFile* GetConfig(const std::string& filename);
