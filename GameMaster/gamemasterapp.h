@@ -1,13 +1,27 @@
 #ifndef GAMEMASTERAPP_H
 #define GAMEMASTERAPP_H
 
+#include <iostream>
 #include <string>
+#include <memory>
 
-class GameMasterApp{
-    std::string config_file_name_;
+#include <LuaBridge.h>
+
+#include <configfile.h>
+
+extern "C" {
+    # include "lua.h"
+    # include "lauxlib.h"
+    # include "lualib.h"
+}
+
+
+//Application base class
+class GameMasterApp
+{
+    std::shared_ptr<ConfigFile> config_;
 public:
     GameMasterApp();
-    void LoadConfigFile(const std::string& config_file_name);
 };
 
 #endif // GAMEMASTERAPP_H
