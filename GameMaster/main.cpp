@@ -13,6 +13,6 @@ extern "C" {
 int main() {
     std::string config_file_name("WWWWWWWWWWWWWWWWWWWWWWW");
     GameMasterApp  app;
-    app.OpenConfig(config_file_name);
+    app.LoadConfig(config_file_name);
     return 0;
 }

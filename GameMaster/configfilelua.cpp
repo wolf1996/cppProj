@@ -6,7 +6,7 @@ ConfigFileLua::ConfigFileLua()
 }
 
 
-void ConfigFileLua::Open(const std::string & filename){
+void ConfigFileLua::Load(const std::string & filename){
 
 }
 

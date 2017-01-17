@@ -7,7 +7,7 @@
 class ConfigFileLua: public ConfigFile
 {
 protected:
-    void Open(const std::string& );
+    void Load(const std::string& );
 public:
     ConfigFileLua();
     ~ConfigFileLua(){

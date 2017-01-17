@@ -8,6 +8,7 @@
 #include <LuaBridge.h>
 
 #include "configfile.h"
+#include "objectmanager.h"
 
 extern "C" {
     # include "lua.h"
@@ -20,9 +21,10 @@ extern "C" {
 class GameMasterApp
 {
     std::shared_ptr<ConfigFile> config_;
+    ObjectManager object_manager_;
 public:
     GameMasterApp();
-    void OpenConfig(const std::string& filename);
+    void LoadConfig(const std::string& filename);
 };
 
 #endif // GAMEMASTERAPP_H

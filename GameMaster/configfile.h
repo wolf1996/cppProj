@@ -12,7 +12,7 @@ protected:
     ConfigFile(){
 
     }
-    virtual void Open(const std::string& ) = 0;
+    virtual void Load(const std::string& ) = 0;
 public:
     virtual ~ConfigFile(){
     }
