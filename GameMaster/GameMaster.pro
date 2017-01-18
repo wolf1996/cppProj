@@ -8,8 +8,9 @@ SOURCES += main.cpp \
     configfile.cpp \
     configfilelua.cpp \
     objectmanager.cpp \
-    field.cpp
-INCLUDEPATH += Lua/Lua.5.2.0/src
+    player.cpp \
+    primitives/field.cpp \
+    primitives/player.cpp
 INCLUDEPATH += LuaBridge
 LIBS += -llua5.2
 
@@ -18,4 +19,7 @@ HEADERS += \
     configfile.h \
     configfilelua.h \
     objectmanager.h \
-    field.h
+    field.h \
+    player.h \
+    primitives/field.h \
+    primitives/player.h
