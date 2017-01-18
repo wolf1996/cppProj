@@ -10,6 +10,8 @@
 
 class Player
 {
+    std::map<std::string, CardHolder> card_holders_;
+    std::map<std::string, Chip> chips_;
 public:
     Player();
 };

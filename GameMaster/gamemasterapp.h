@@ -9,6 +9,7 @@
 
 #include "configfile.h"
 #include "objectmanager.h"
+#include "scriptmanager.h"
 
 extern "C" {
     # include "lua.h"
@@ -22,9 +23,11 @@ class GameMasterApp
 {
     std::shared_ptr<ConfigFile> config_;
     ObjectManager object_manager_;
+    ScriptManager script_manager_;
 public:
     GameMasterApp();
     void LoadConfig(const std::string& filename);
+
 };
 
 #endif // GAMEMASTERAPP_H
