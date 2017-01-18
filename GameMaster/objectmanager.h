@@ -1,9 +1,11 @@
 #ifndef OBJECTMANAGER_H
 #define OBJECTMANAGER_H
 
+using namespace std;
 #include <string>
 #include <memory>
 #include <map>
+#include <iostream>
 
 #include "configfile.h"
 #include "primitives/all.h"

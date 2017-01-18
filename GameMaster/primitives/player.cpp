@@ -4,7 +4,8 @@ Player::Player()
 {
 
 }
-std::string& Player::GetTest(const std::string& name){
-   static std::string var = name;
-   return var;
+const char* Player::GetTest(const std::string& name){
+    std::cout<< "call player_test with value: " << name << std::endl;
+    std::string var = name;
+   return "var";
 }

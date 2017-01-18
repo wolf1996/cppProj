@@ -34,3 +34,6 @@ HEADERS += \
     primitives/all.h \
     primitives/chip.h \
     primitives/infoboard.h
+
+DISTFILES += \
+    ../script.lua
