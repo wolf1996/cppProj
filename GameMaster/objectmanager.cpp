@@ -9,7 +9,7 @@ void ObjectManager::LoadVariables(const std::shared_ptr<ConfigFile>& config){
     config_ = config;
 }
 
-std::string& ObjectManager::GetTest(const std::string& name){
-   static std::string var = name;
-   return var;
+Player& ObjectManager::GetTest(const std::string& name){
+   static Player pl;
+   return pl;
 }

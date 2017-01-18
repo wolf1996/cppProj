@@ -14,6 +14,7 @@ class Player
     std::map<std::string, Chip> chips_;
 public:
     Player();
+    std::string& GetTest(const std::string& name);
 };
 
 #endif // PLAYER_H

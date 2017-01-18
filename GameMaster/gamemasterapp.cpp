@@ -10,6 +10,6 @@ void GameMasterApp::LoadConfig(const std::string &filename){
     std::cout<<"code file is"<<config_->GetCodeFileName()<<std::endl;
     object_manager_.LoadVariables(config_);
     script_manager_.ApplyConfig(config_);
-    std::string var = object_manager_.GetTest(std::string("blah"));
+    std::string var = object_manager_.GetTest(std::string("blah")).GetTest(std::string("bluh"));
     std::cout<<"test is "<< var<< std::endl;
 }

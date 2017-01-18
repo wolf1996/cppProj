@@ -23,7 +23,7 @@ public:
     //    CardHolder& GetCardHolder(const std::string& );
     //    Player& GetPlayer(const std::string& );
     //    InfoBoard& GetInfoBoard(const std::string& );
-    std::string& GetTest(const std::string& name);
+    Player& GetTest(const std::string& name);
 };
 
 #endif // OBJECTMANAGER_H
