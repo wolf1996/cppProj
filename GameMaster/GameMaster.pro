@@ -15,7 +15,8 @@ SOURCES += main.cpp \
     primitives/deck.cpp \
     scriptmanager.cpp \
     primitives/chip.cpp \
-    primitives/infoboard.cpp
+    primitives/infoboard.cpp \
+    primitives/baseobject.cpp
 INCLUDEPATH += Lua/Lua.5.2.0/src
 INCLUDEPATH += LuaBridge
 LIBS += -llua5.2
@@ -33,7 +34,8 @@ HEADERS += \
     scriptmanager.h \
     primitives/all.h \
     primitives/chip.h \
-    primitives/infoboard.h
+    primitives/infoboard.h \
+    primitives/baseobject.h
 
 DISTFILES += \
     ../script.lua

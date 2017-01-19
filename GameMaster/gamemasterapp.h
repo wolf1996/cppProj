@@ -5,17 +5,18 @@
 #include <string>
 #include <memory>
 
+extern "C" {
+    # include "lua.h"
+    # include "lauxlib.h"
+    # include "lualib.h"
+}
 #include <LuaBridge.h>
 
 #include "configfile.h"
 #include "objectmanager.h"
 #include "scriptmanager.h"
 
-extern "C" {
-    # include "lua.h"
-    # include "lauxlib.h"
-    # include "lualib.h"
-}
+
 
 
 //Application base class

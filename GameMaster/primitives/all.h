@@ -1,5 +1,6 @@
 #ifndef ALL_H
 #define ALL_H
+#include "baseobject.h"
 #include "infoboard.h"
 #include "cardholder.h"
 #include "deck.h"
