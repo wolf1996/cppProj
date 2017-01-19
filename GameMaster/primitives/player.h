@@ -7,8 +7,8 @@
 
 #include <iostream>
 
-#include "configfile.h"
-#include "primitives/all.h"
+#include "chip.h"
+#include "cardholder.h"
 
 class Player
 {

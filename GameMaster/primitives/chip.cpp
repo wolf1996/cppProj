@@ -1,6 +1,6 @@
 #include "chip.h"
 
-Chip::Chip()
+Chip::Chip():position(0)
 {
 
 }
