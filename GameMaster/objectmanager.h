@@ -15,15 +15,15 @@ class ObjectManager
     std::map<std::string, Field> fields_;
     std::map<std::string, Player> players_;
     std::map<std::string, Deck> decks_;
-    std::map<std::string, InfoBoard> boards_;
+    std::map<std::string, InfoBoard> info_boards_;
 public:
     ObjectManager();
     void LoadVariables(const std::shared_ptr<ConfigFile>&);
-    //    Deck& GetDeck(const std::string& deckname);
-    //    Field& GetField(const std::string& );
-    //    CardHolder& GetCardHolder(const std::string& );
-    //    Player& GetPlayer(const std::string& );
-    //    InfoBoard& GetInfoBoard(const std::string& );
+    Deck& GetDeck(const std::string& deckname);
+    Field& GetField(const std::string& );
+    CardHolder& GetCardHolder(const std::string& );
+    Player& GetPlayer(const std::string& );
+    InfoBoard& GetInfoBoard(const std::string& );
     Player& GetTest(const std::string& name);
 };
 
