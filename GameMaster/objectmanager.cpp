@@ -10,7 +10,7 @@ void ObjectManager::LoadVariables(const std::shared_ptr<ConfigFile>& config){
 }
 
 Player& ObjectManager::GetTest(const std::string& name){
-    std::cout << "call obj_test" << endl;
+    std::cout << "call obj_test" << std::endl;
    static Player pl;
    return pl;
 }

@@ -2,14 +2,13 @@
 #define CARDHOLDER_H
 #include "baseobject.h"
 
-
 class CardHolder: public BaseObject
 {
 public:
     CardHolder();
     CardHolder(bool visible);
     bool isVisible() override;
-    static void DeclarationToLua(lua_State* L);
+    static void DeclarationToLua(luabridge::lua_State* L);
 private:
     bool _visible;
 };

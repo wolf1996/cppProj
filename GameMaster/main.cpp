@@ -1,8 +1,8 @@
 // main.cpp
 //
 // TODO: base object
-#include <LuaBridge.h>
 #include <iostream>
+#include <LuaBridge.h>
 
 #include "gamemasterapp.h"
 
@@ -20,17 +20,17 @@ void printMessage(std::string& s) {
     std::cout << s << std::endl;
 }
 
-using namespace luabridge;
+//using namespace luabridge;
 int main() {
     std::string config_file_name("WWWWWWWWWWWWWWWWWWWWWWW");
     GameMasterApp  app;
     app.LoadConfig(config_file_name);
 
 
-    lua_State* L = luaL_newstate();
-        luaL_openlibs(L);
+    luabridge::lua_State* L = luabridge::luaL_newstate();
+        luabridge::luaL_openlibs(L);
 
-        getGlobalNamespace(L)
+        luabridge::getGlobalNamespace(L)
                 .addFunction("printMessage_const", printMessage_const)
                 .addFunction("printMessage", printMessage)
                     .beginClass<Player> ("Player")
@@ -44,8 +44,8 @@ int main() {
 
         luaL_dofile(L, "../script.lua");
         lua_pcall(L, 0, 0, 0);
-        LuaRef sumNumbers = getGlobal(L, "sumNumbers");
-        LuaRef P = getGlobal(L,"P");
+        luabridge::LuaRef sumNumbers = getGlobal(L, "sumNumbers");
+        luabridge::LuaRef P = getGlobal(L,"P");
         int result = sumNumbers(5, 4);
         std::cout << "Result:" << P.cast<Player>().GetTest("bla") << std::endl;
     return 0;
