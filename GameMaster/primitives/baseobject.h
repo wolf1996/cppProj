@@ -15,7 +15,6 @@ class BaseObject
 public:
     BaseObject();
     virtual ~BaseObject(){}
-    static void DeclarationToLua(luabridge::lua_State* L){};
     virtual bool isVisible(void){
         return false;
     }

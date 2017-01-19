@@ -19,7 +19,7 @@ void CardHolder::DeclarationToLua(luabridge::lua_State *L)
 {
     luabridge::getGlobalNamespace(L)
             .beginNamespace("Objects")
-                .beginClass<CardHolder>("CardHolder")
+                .deriveClass<CardHolder,BaseObject>("CardHolder")
                     .addConstructor<void(*)(void)>()
                     .addConstructor<void(*)(bool visible)>()
                     .addFunction("isVisible",&CardHolder::isVisible)
