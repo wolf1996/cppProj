@@ -40,6 +40,24 @@ private:
     std::string text;
 };
 
+
+class test_ob
+{
+public:
+    test_ob(test* pt): pt_(pt){}
+    std::string get(void) const
+    {
+        return pt_->get();
+    }
+    void set(std::string text)
+    {
+        pt_->set(text);
+    }
+
+private:
+    test* pt_;
+};
+
 //using namespace luabridge;
 int main() {
     std::string config_file_name("WWWWWWWWWWWWWWWWWWWWWWW");
