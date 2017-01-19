@@ -54,6 +54,8 @@ public:
         pt_->set(text);
     }
 
+
+
 private:
     test* pt_;
 };
@@ -65,7 +67,9 @@ int main() {
     app.LoadConfig(config_file_name);
 
     test t;
-    t.set("toLua");
+    //t.set("toLua");
+
+    test_ob t_ob(&t);
 
     luabridge::lua_State* L = luabridge::luaL_newstate();
         luabridge::luaL_openlibs(L);
@@ -76,8 +80,12 @@ int main() {
                     .addConstructor<void(*)()>()
                     .addProperty("text",&test::get,&test::set)
                 .endClass()
+                .beginClass<test_ob>("test_ob")
+                    .addConstructor<void(*)(test*)>()
+                    .addProperty("pt",&test_ob::get,&test_ob::set)
+                .endClass()
                 .beginNamespace("temp")
-                    .addVariable("t",&t)
+                    .addVariable("t_ob",&t_ob)
                 .endNamespace();
         getGlobalNamespace(L)
                 .addFunction("printMessage_const", printMessage_const)
@@ -96,12 +104,18 @@ int main() {
 
 
 
-        luabridge::LuaRef sumNumbers = getGlobal(L, "sumNumbers");
-        luabridge::LuaRef P = getGlobal(L,"P");
-        test t2 = getGlobal(L,"t2").cast<test>();
+//        luabridge::LuaRef sumNumbers = getGlobal(L, "sumNumbers");
+//        luabridge::LuaRef P = getGlobal(L,"P");
+//        test t2 = getGlobal(L,"t2").cast<test>();
 
-        std::cout<<"in C "<<t2.get()<<std::endl;
-        int result = sumNumbers(5, 4);
-        std::cout << "Result:" << P.cast<Player>().GetTest("bla") << std::endl;
+        std::cout<<"in C "<<t.get()<<std::endl;
+
+
+        luabridge::LuaRef table = getGlobal(L,"table1");
+        luabridge::LuaRef table_inside = table["table_inside"];
+        std::string author = (table_inside["author"]).cast<std::string>();
+        std::cout << author << std::endl;
+//        int result = sumNumbers(5, 4);
+        //std::cout << "Result:" << P.cast<Player>().GetTest("bla") << std::endl;
     return 0;
 }
