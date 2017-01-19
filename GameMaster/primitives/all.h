@@ -1,11 +1,12 @@
 #ifndef ALL_H
 #define ALL_H
+#include "chip.h"
 #include "baseobject.h"
 #include "infoboard.h"
 #include "cardholder.h"
 #include "deck.h"
-#include "chip.h"
 #include "field.h"
 #include "messagebox.h"
 #include "player.h"
+#include "card.h"
 #endif // ALL_H

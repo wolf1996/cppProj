@@ -7,16 +7,21 @@
 
 #include <iostream>
 
-#include "configfile.h"
-#include "primitives/all.h"
+#include "chip.h"
+#include "cardholder.h"
+#include "field.h"
 
 class Player
 {
-    std::map<std::string, CardHolder> card_holders_;
-    std::map<std::string, Chip> chips_;
 public:
     Player();
+    void GetChip(Field*, const std::string& name);
     const char *GetTest(const std::string& name);
+    void SetName(const std::string& name);
+private:
+    std::map<std::string, CardHolder> card_holders_;
+    std::map<std::string, std::shared_ptr<Chip>> chips_;
+    std::string name_;
 };
 
 #endif // PLAYER_H
