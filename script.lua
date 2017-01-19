@@ -11,14 +11,17 @@ end
 --var = P:GetTest("test_player")
 --printMessage_const(var)
 
-print(temp.t.text)
-temp.t.text = "to C"
-tem1 = temp.t.text
-print(tem1)
-print(temp.t.text)
-print("----------")
-t2 = test()
-print(t2.text)
-t2.text = "t2 to C"
-print(t2.text)
-print("----------")
+print(temp.t_ob.pt)
+temp.t_ob.pt = "to C"
+print(temp.t_ob.pt)
+
+
+
+table1 = {
+    value = 42,
+    name = "автостопом по галактике",
+    table_inside = {
+        author = "bla bla",
+        date = 1999,
+    },
+}
