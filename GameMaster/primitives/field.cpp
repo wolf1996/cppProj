@@ -21,9 +21,7 @@ void Field::DeclarationToLua(sol::table &namespace_)
     sol::constructors<sol::types<>,sol::types<bool>> ctor;
     namespace_.new_usertype<Field>("Field",
                                         ctor,
-                                        "isVisible",&Field::isVisible,
-                                        "GetChip",&Field::GetChip,
-                                        "Show",&Field::Show
+                                        "isVisible",&Field::isVisible
                                         );
 }
 

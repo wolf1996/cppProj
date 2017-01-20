@@ -18,3 +18,16 @@ void InfoBoard::DeclarationToLua(sol::table &namespace_)
                                         "isVisible",&InfoBoard::isVisible
                                       );
 }
+
+
+void InfoBoard::SetText(const std::string& text){
+    text_ = text;
+}
+
+std::string InfoBoard::GetText(){
+    return text_;
+}
+
+void InfoBoard::Show(){
+
+}
