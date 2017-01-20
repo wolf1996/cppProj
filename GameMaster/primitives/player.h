@@ -11,6 +11,7 @@
 #include "chip.h"
 #include "cardholder.h"
 #include "field.h"
+#include "deck.h"
 
 class Player
 {
@@ -23,6 +24,7 @@ public:
 private:
     std::map<std::string, CardHolder> card_holders_;
     std::map<std::string, std::shared_ptr<Chip>> chips_;
+    std::map<std::string, Deck> decks_;
     std::string name_;
 };
 

@@ -26,3 +26,61 @@ table1 = {
     },
 }
 
+var = {
+    boards = {
+        wordboard,
+    },
+    decks  = {
+        gamecards = {
+            {
+                {
+                    back = "1",
+                    face = "2",
+                    props = {},
+                },
+                {
+                    back = "1",
+                    face = "2",
+                    props = {},
+                },
+                {
+                    back = "1",
+                    face = "2",
+                    props = {},
+                },
+            },
+        },
+    },
+    cardholders = {
+        picholder,
+        numholder
+    },
+    fields = {
+        gamefield,
+    },
+    player = {
+        chips = {
+            gamefield = {},
+        },
+        decks = {
+            numdeck = {
+            {
+                back = "1",
+                face = "2",
+                props = { num = 1 },
+            },
+            {
+                back = "1",
+                face = "2",
+                props = {num = 2 },
+            },
+            {
+                back = "1",
+                face = "2",
+                props = {num = 3},
+            },
+            }
+        }
+
+    },
+}

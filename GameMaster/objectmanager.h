@@ -15,6 +15,7 @@
 class ObjectManager
 {
 public:
+    friend class ObjectBuilder;
     ObjectManager();
     void LoadVariables(const std::shared_ptr<ConfigFile>&);
     Deck& GetDeck(const std::string& deckname);//add1
@@ -24,7 +25,6 @@ public:
     InfoBoard& GetInfoBoard(const std::string& );//add
     Player& GetTest(const std::string& name);//add
 private:
-    friend class ObjectBuilder;
     std::shared_ptr<ConfigFile> config_;
     std::map<std::string, CardHolder> card_holders_;
     std::map<std::string, Field> fields_;
