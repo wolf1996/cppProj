@@ -15,7 +15,9 @@ void Card::DeclarationToLua(sol::table &namespace_)
     sol::constructors<sol::types<>,sol::types<bool>> ctor;
     namespace_.new_usertype<Card>("Card",
                                         ctor,
-                                        "isVisible",&Card::isVisible
+                                        "isVisible",&Card::isVisible,
+                                        "Face",sol::property(&Card::GetFace,&Card::SetFace),
+                                        "Back",sol::property(&Card::GetBack,&Card::SetBack)
                                         );
 }
 

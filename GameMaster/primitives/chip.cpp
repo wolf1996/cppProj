@@ -29,7 +29,6 @@ void Chip::DeclarationToLua(sol::table &namespace_)
                                         ctor,
                                         "isVisible",&Chip::isVisible,
                                         "MoveForvard",&Chip::MoveForward,
-                                        "SetPosition",&Chip::SetPosition,
-                                        "GetPosition",&Chip::GetPosition
+                                        "Position",sol::property(&Chip::GetPosition,&Chip::SetPosition)
                                         );
 }
