@@ -13,7 +13,6 @@ public:
     void Show();//add
 private:
     std::string text_;
-    static void DeclarationToLua(sol::table& namespace_);
 };
 
 #endif // INFOBOARD_H
