@@ -10,9 +10,9 @@ public:
     MessageBox();
     MessageBox(bool visible);
     static void DeclarationToLua(sol::table& namespace_);
-    void SetText(const std::string& );
-    std::string GetText();
-    void Show();
+    void SetText(const std::string& );//add
+    std::string GetText();//add
+    void Show();//add
 private:
     std::string text_;
 };
