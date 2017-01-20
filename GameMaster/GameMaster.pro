@@ -10,7 +10,7 @@ SOURCES += main.cpp \
     objectmanager.cpp \
     primitives/field.cpp \
     primitives/player.cpp \
-    primitives/messagebox.cpp \
+    primitives/messagebox.cpp\
     primitives/cardholder.cpp \
     primitives/deck.cpp \
     scriptmanager.cpp \
@@ -20,7 +20,9 @@ SOURCES += main.cpp \
     primitives/card.cpp
 INCLUDEPATH += Lua/Lua.5.2.0/src
 INCLUDEPATH += single/sol
-LIBS += -llua5.2
+LIBS += -llua5.2\
+        -lboost_system\
+        -lboost_filesystem\
 
 HEADERS += \
     gamemasterapp.h \
