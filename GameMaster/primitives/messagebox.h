@@ -9,12 +9,6 @@ class MessageBox
 public:
     MessageBox();
 
-    static void DeclarationToLua(sol::table& namespace_);
-    void SetText(const std::string& );//add
-    std::string GetText();//add
-    void Show();//add
-private:
-    std::string text_;
 };
 
 #endif // MESSAGEBOX_H

@@ -17,7 +17,7 @@ class ObjectManager
 public:
     ObjectManager();
     void LoadVariables(const std::shared_ptr<ConfigFile>&);
-    Deck& GetDeck(const std::string& deckname);//add
+    Deck& GetDeck(const std::string& deckname);//add1
     Field& GetField(const std::string& );//add
     CardHolder& GetCardHolder(const std::string& );//add
     Player& GetPlayer(const std::string& );//add
