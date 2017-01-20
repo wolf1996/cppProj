@@ -10,3 +10,8 @@ std::shared_ptr<Chip> Field::GetChip(const std::string& username){
     chips_[username]  = result;
     return result;
 }
+
+
+void Field::Show(){
+
+}
