@@ -1,6 +1,11 @@
 #include "messagebox.h"
 
-MessageBox::MessageBox()
+MessageBox::MessageBox(): BaseObject()
+{
+
+}
+
+MessageBox::MessageBox(bool visible): BaseObject(visible)
 {
 
 }
@@ -8,7 +13,7 @@ MessageBox::MessageBox()
 void MessageBox::DeclarationToLua(sol::table &namespace_)
 {
 
-    sol::constructors<sol::types<>> ctor;
+    sol::constructors<sol::types<>,sol::types<bool>> ctor;
     namespace_.new_usertype<MessageBox>("MessageBox",
                                         ctor,
                                         "Text",sol::property(&MessageBox::GetText,&MessageBox::SetText),
