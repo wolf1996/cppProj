@@ -5,8 +5,6 @@
 #include <string>
 #include <memory>
 
-#include <LuaBridge.h>
-
 extern "C" {
     # include "lua.h"
     # include "lauxlib.h"

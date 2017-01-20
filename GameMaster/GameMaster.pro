@@ -1,5 +1,5 @@
 TEMPLATE = app
-CONFIG += console c++11
+CONFIG += console c++1z
 CONFIG -= app_bundle
 CONFIG -= qt
 
@@ -19,7 +19,7 @@ SOURCES += main.cpp \
     primitives/baseobject.cpp \
     primitives/card.cpp
 INCLUDEPATH += Lua/Lua.5.2.0/src
-INCLUDEPATH += LuaBridge
+INCLUDEPATH += single/sol
 LIBS += -llua5.2
 
 HEADERS += \

@@ -1,7 +1,6 @@
 #ifndef BASEOBJECT_H
 #define BASEOBJECT_H
 
-#include <LuaBridge.h>
 
 extern "C" {
     # include "lua.h"

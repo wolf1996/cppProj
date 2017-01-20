@@ -15,14 +15,6 @@ bool CardHolder::isVisible()
     return this->_visible;
 }
 
-void CardHolder::DeclarationToLua(luabridge::lua_State *L)
-{
-    luabridge::getGlobalNamespace(L)
-            .beginNamespace("Objects")
-                .deriveClass<CardHolder,BaseObject>("CardHolder")
-                    .addConstructor<void(*)(void)>()
-                    .addConstructor<void(*)(bool visible)>()
-                    .addFunction("isVisible",&CardHolder::isVisible)
-                .endClass()
-            .endNamespace();
-}
+//void CardHolder::DeclarationToLua(luabridge::lua_State *L)
+//{
+//}
