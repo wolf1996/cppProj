@@ -6,7 +6,8 @@ ScriptManager::ScriptManager(const std::shared_ptr<ConfigFile> &config): config_
     this->namespace_ = this->lua.create_named_table("objects");
 }
 
-void ScriptManager::LoadObject()
+void ScriptManager::
+LoadObject()
 {
     Card::DeclarationToLua(this->namespace_);
     CardHolder::DeclarationToLua(this->namespace_);

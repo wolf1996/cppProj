@@ -3,12 +3,12 @@
 
 #include <sol.hpp>
 #include <string>
-///// наследование от baseobject??????
-class MessageBox
+#include "baseobject.h"
+class MessageBox : public BaseObject
 {
 public:
     MessageBox();
-
+    MessageBox(bool visible);
     static void DeclarationToLua(sol::table& namespace_);
     void SetText(const std::string& );
     std::string GetText();
