@@ -12,11 +12,14 @@ extern "C" {
 class BaseObject
 {
 public:
-    BaseObject();
+    BaseObject(): visible_(false){}
+    BaseObject(bool visible): visible_(visible){}
     virtual ~BaseObject(){}
     virtual bool isVisible(void){
-        return false;
+        return this->visible_;
     }
+protected:
+    bool visible_;
 };
 
 #endif // BASEOBJECT_H

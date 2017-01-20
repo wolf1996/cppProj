@@ -1,18 +1,13 @@
 #include "cardholder.h"
 
-CardHolder::CardHolder()
+CardHolder::CardHolder(): BaseObject()
 {
-    this->_visible = false;
+
 }
 
-CardHolder::CardHolder(bool visible)
+CardHolder::CardHolder(bool visible): BaseObject(visible)
 {
-    this->_visible = visible;
-}
 
-bool CardHolder::isVisible()
-{
-    return this->_visible;
 }
 
 void CardHolder::DeclarationToLua(sol::table& namespace_)

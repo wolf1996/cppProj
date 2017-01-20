@@ -1,6 +1,11 @@
 #include "chip.h"
 
-Chip::Chip():position_(0)
+Chip::Chip(): BaseObject(), position_(0)
+{
+
+}
+
+Chip::Chip(bool visible): BaseObject(visible), position_(0)
 {
 
 }
@@ -15,4 +20,16 @@ void Chip::SetPosition(unsigned int num){
 
 unsigned int  Chip::GetPosition(){
     return position_;
+}
+
+void Chip::DeclarationToLua(sol::table &namespace_)
+{
+    sol::constructors<sol::types<>,sol::types<bool>> ctor;
+    namespace_.new_usertype<Chip>("Chip",
+                                        ctor,
+                                        "isVisible",&Chip::isVisible,
+                                        "MoveForvard",&Chip::MoveForward,
+                                        "SetPosition",&Chip::SetPosition,
+                                        "GetPosition",&Chip::GetPosition
+                                        );
 }

@@ -6,6 +6,7 @@
 #include <map>
 
 #include <iostream>
+#include <sol.hpp>
 
 #include "chip.h"
 #include "cardholder.h"
@@ -18,6 +19,7 @@ public:
     void GetChip(Field*, const std::string& name);
     const char *GetTest(const std::string& name);
     void SetName(const std::string& name);
+    static void DeclarationToLua(sol::table& namespace_);
 private:
     std::map<std::string, CardHolder> card_holders_;
     std::map<std::string, std::shared_ptr<Chip>> chips_;
