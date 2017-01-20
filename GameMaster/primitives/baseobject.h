@@ -1,7 +1,7 @@
 #ifndef BASEOBJECT_H
 #define BASEOBJECT_H
 
-
+#include <sol.hpp>
 extern "C" {
     # include "lua.h"
     # include "lauxlib.h"

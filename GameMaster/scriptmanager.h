@@ -8,10 +8,11 @@
 class ScriptManager
 {
     std::shared_ptr<ConfigFile> config_;
+    sol::state lua;
 public:
-    ScriptManager();
-    ScriptManager(const std::shared_ptr<ConfigFile>& config): config_(config){}
-    void ApplyConfig(const std::shared_ptr<ConfigFile>&);
+    ScriptManager(const std::shared_ptr<ConfigFile>& config);
+    void LoadObject(void);
+    void LoadScript(void);
 };
 
 #endif // SCRIPTMANAGER_H

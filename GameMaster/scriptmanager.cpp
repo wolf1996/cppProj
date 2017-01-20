@@ -1,23 +1,17 @@
 #include "scriptmanager.h"
 
-void ScriptManager::LoadLibries_()
+ScriptManager::ScriptManager(const std::shared_ptr<ConfigFile> &config): config_(config)
 {
     this->lua.open_libraries(sol::lib::base, sol::lib::io);
+    this->namespace_ = this->lua.create_named_table("objects");
 }
 
-ScriptManager::ScriptManager()
+void ScriptManager::LoadObject()
 {
-
-}
-
-
-
-void ScriptManager::ApplyConfig(const std::shared_ptr<ConfigFile> & config){
-    config_ = config;
-
+    CardHolder::DeclarationToLua(this->namespace_);
 }
 
 void ScriptManager::LoadScript()
 {
-
+    this->lua.load((*this->config_).GetCodeFileName());
 }

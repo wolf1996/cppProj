@@ -22,8 +22,8 @@ extern "C" {
 class GameMasterApp
 {
     std::shared_ptr<ConfigFile> config_;
-    ObjectManager object_manager_;
-    ScriptManager script_manager_;
+    std::shared_ptr<ObjectManager> object_manager_;
+    std::shared_ptr<ScriptManager> script_manager_;
 public:
     GameMasterApp();
     void LoadConfig(const std::string& filename);

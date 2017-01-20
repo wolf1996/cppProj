@@ -12,7 +12,7 @@ public:
     CardHolder();
     CardHolder(bool visible);
     bool isVisible() override;
-//    static void DeclarationToLua(luabridge::lua_State* L);
+    static void DeclarationToLua(sol::table& namespace_);
 private:
     std::vector<Card> cards_;
     bool _visible;
