@@ -19,3 +19,19 @@ void CardHolder::DeclarationToLua(sol::table& namespace_)
                                         );
 }
 
+
+std::string CardHolder::GetIName(unsigned int index){
+    return std::get<1>(cards_[index]);
+}
+
+Card CardHolder::GetICard(unsigned int index){
+    return std::get<0>(cards_[index]);
+}
+
+Card  CardHolder::EraseICard(unsigned int index){
+      return std::get<0>(*cards_.erase(cards_.begin()+index));
+}
+
+void CardHolder::AddCard(std::string name, Card val){
+    cards_.push_back(std::tuple<Card, std::string>(val,name));
+}
