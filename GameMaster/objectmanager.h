@@ -17,12 +17,12 @@ class ObjectManager
 public:
     ObjectManager();
     void LoadVariables(const std::shared_ptr<ConfigFile>&);
-    Deck& GetDeck(const std::string& deckname);
-    Field& GetField(const std::string& );
-    CardHolder& GetCardHolder(const std::string& );
-    Player& GetPlayer(const std::string& );
-    InfoBoard& GetInfoBoard(const std::string& );
-    Player& GetTest(const std::string& name);
+    Deck& GetDeck(const std::string& deckname);//add
+    Field& GetField(const std::string& );//add
+    CardHolder& GetCardHolder(const std::string& );//add
+    Player& GetPlayer(const std::string& );//add
+    InfoBoard& GetInfoBoard(const std::string& );//add
+    Player& GetTest(const std::string& name);//add
 private:
     friend class ObjectBuilder;
     std::shared_ptr<ConfigFile> config_;

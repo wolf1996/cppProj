@@ -11,9 +11,9 @@ class Deck : public BaseObject
 public:
     Deck();
     Deck(bool visible);
-    std::vector<Card> PopCards(int num = 1);
-    void AppendCards(std::vector<Card> cards);
-    void Shuffle();
+    std::vector<Card> PopCards(int num = 1);//add
+    void AppendCards(std::vector<Card> cards);//add
+    void Shuffle();//add
     static void DeclarationToLua(sol::table& namespace_);
 private:
     std::vector<Card> cards_;

@@ -14,7 +14,7 @@ public:
     Field(bool visible);
     std::shared_ptr<Chip> GetChip(const std::string&);
     static void DeclarationToLua(sol::table& namespace_);
-    void Show();
+    void Show();//add
 private:
     std::map<std::string,std::shared_ptr<Chip> > chips_;
 };
