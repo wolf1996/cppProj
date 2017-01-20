@@ -13,8 +13,9 @@ public:
     CardHolder(bool visible);
     bool isVisible() override;
     static void DeclarationToLua(sol::table& namespace_);
+
 private:
-    std::vector<Card> cards_;
+    std::vector<std::tuple<Card,std::string>> cards_;
     bool _visible;
 };
 

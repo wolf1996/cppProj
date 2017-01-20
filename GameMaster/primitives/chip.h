@@ -9,8 +9,11 @@ class Chip
 {
 public:
     Chip();
+    void MoveForward(int num = 1);
+    void SetPosition(unsigned int num);
+    unsigned int GetPosition();
 private:
-    unsigned long long position;
+    unsigned int position_;
 };
 
 #endif // CHIP_H
