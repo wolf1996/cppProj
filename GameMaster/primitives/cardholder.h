@@ -12,9 +12,10 @@ public:
     CardHolder();
     CardHolder(bool visible);
     bool isVisible() override;
+    //void GetCardFromDeck(const std::string& deckname, unsigned int num);
 //    static void DeclarationToLua(luabridge::lua_State* L);
 private:
-    std::vector<Card> cards_;
+    std::vector<std::tuple<Card,std::string>> cards_;
     bool _visible;
 };
 
