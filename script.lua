@@ -56,11 +56,12 @@ var = {
         numholder
     },
     fields = {
-        gamefield,
+        gamefield = { num = 26,
+        },
     },
     player = {
         chips = {
-            gamefield = {},
+            gamefield,
         },
         decks = {
             numdeck = {
