@@ -35,7 +35,7 @@ void CardHolder::Shuffle(){
 }
 
 int CardHolder::Size(){
-    cards_.size();
+    return cards_.size();
 }
 
 

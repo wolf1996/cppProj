@@ -31,7 +31,7 @@ void Deck::DeclarationToLua(sol::table &namespace_)
                                         );
 }
 int Deck::size(){
-    cards_.size();
+    return cards_.size();
 }
 
 
