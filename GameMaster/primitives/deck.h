@@ -20,4 +20,13 @@ private:
 
 };
 
+class DeckPtr: public BaseObjectPtr
+{
+public:
+    DeckPtr(std::shared_ptr<Deck> card = std::make_shared<Deck>(NULL));
+    DeckPtr Create(bool visible = false);
+private:
+    std::shared_ptr<Deck> deck_;
+};
+
 #endif // DECK_H

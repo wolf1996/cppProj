@@ -37,3 +37,16 @@ void Deck::DeclarationToLua(sol::table &namespace_)
                                         );
 }
 
+
+DeckPtr::DeckPtr(std::shared_ptr<Deck> deck) : BaseObjectPtr(deck)
+{
+    this->deck_ = deck;
+}
+
+DeckPtr DeckPtr::Create(bool visible)
+{
+    if(this->deck_)
+        return *this;
+    this->deck_ = std::make_shared<Deck>(Deck(visible));
+    return *this;
+}
