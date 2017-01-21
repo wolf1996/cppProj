@@ -47,16 +47,17 @@ CardPtr::CardPtr(std::shared_ptr<Card> card): BaseObjectPtr(card)
 
 CardPtr CardPtr::Create(bool visible)
 {
-    if(!this->card_.get())
+    if(this->card_.get())
         return *this;
-    this->card_ = std::make_shared<Card>(new Card(visible));
+    this->card_ = std::make_shared<Card>(Card(visible));
     return *this;
 }
 
 void CardPtr::DeclarationToLua(sol::table &namespace_)
 {
     namespace_.new_usertype<CardPtr>("CardPtr",
-                                  "isVisible",&CardPtr::isVisible
+                                     "isVisible",&CardPtr::isVisible,
+                                     "Create",&CardPtr::Create
                                      );
 }
 

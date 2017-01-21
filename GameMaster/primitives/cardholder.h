@@ -34,8 +34,8 @@ public:
     static void DeclarationToLua(sol::table& namespace_);
     std::string GetIName(unsigned int index);
     CardPtr GetICard(unsigned int index);
-    Card EraseICard(unsigned int index);
-    void AddCard(std::string name, Card card);
+    void EraseICard(unsigned int index);
+    void AddCard(std::string name, CardPtr card);
 private:
     std::shared_ptr<CardHolder> cardholder_;
 };

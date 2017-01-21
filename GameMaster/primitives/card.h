@@ -4,6 +4,10 @@
 #include "boost/filesystem/path.hpp"
 #include "baseobject.h"
 
+///for CardPtr frendship
+class CardHolderPtr;
+
+
 class Card : public BaseObject
 {
 public:
@@ -39,6 +43,7 @@ public:
     void SetFace(const boost::filesystem::path&);
     void SetBack(const boost::filesystem::path&);
     void Show(ShowType val = BACK);
+    friend class CardHolderPtr;
 private:
     std::shared_ptr<Card> card_;
 };
