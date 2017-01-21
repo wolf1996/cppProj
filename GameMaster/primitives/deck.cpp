@@ -30,6 +30,9 @@ void Deck::DeclarationToLua(sol::table &namespace_)
                                         "Shuffle",&Deck::Shuffle
                                         );
 }
+int Deck::size(){
+    cards_.size();
+}
 
 
 DeckPtr::DeckPtr(std::shared_ptr<Deck> deck) : BaseObjectPtr(deck)

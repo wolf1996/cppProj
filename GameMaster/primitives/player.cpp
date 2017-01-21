@@ -18,6 +18,26 @@ void Player::SetName(const std::string& name){
     name_ = name;
 }
 
+void Player::AddToCardHolder(const std::string& name, Card& card){
+    card_holders_[name].AddCard(std::string("system"),card);
+}
+
+void Player::PopFromCardHolder(const std::string& name, Deck& deck, unsigned int index){
+    deck.AppendCards(std::vector<Card>(1,card_holders_[name].GetICard(index)));
+    card_holders_[name].EraseICard(index);
+}
+
+void Player::PopFromCardHolder(const std::string& name, CardHolder& card_holder, unsigned int index){
+    card_holder.AddCard(name_,card_holders_[name].GetICard(index));
+    card_holders_[name].EraseICard(index);
+}
+
+CardHolder& Player::GetCardHolder(const std::string& name){
+    return card_holders_[name];
+}
+
+
+
 void Player::DeclarationToLua(sol::table &namespace_)
 {
     sol::constructors<sol::types<>> ctor;
@@ -26,4 +46,8 @@ void Player::DeclarationToLua(sol::table &namespace_)
                                         "GetChip",&Player::GetChip,
                                         "SetName",&Player::SetName
                                       );
+}
+
+void Player::MoveChip(const std::string& fieldname, unsigned int num){
+    chips_[fieldname]->MoveForward(num);
 }

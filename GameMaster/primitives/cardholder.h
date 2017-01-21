@@ -22,6 +22,7 @@ public:
     void Shuffle();
     void AddFromDeck(Deck& , unsigned int num = 1, const std::string& name = std::string("system"));
     void PopToDeck(Deck&, unsigned int num = 1);
+    int Size();
 private:
     std::vector<std::tuple<Card,std::string>> cards_;
 };
