@@ -36,4 +36,7 @@ void Deck::DeclarationToLua(sol::table &namespace_)
                                         "Shuffle",&Deck::Shuffle
                                         );
 }
+int Deck::size(){
+    cards_.size();
+}
 

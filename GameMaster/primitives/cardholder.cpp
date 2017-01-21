@@ -34,6 +34,10 @@ void CardHolder::Shuffle(){
     std::random_shuffle(cards_.begin(), cards_.end());
 }
 
+int CardHolder::Size(){
+    cards_.size();
+}
+
 
 std::string CardHolder::GetIName(unsigned int index){
     return std::get<1>(cards_[index]);

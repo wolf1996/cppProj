@@ -15,6 +15,7 @@ public:
     void AppendCards(std::vector<Card> cards);//add
     void Shuffle();//add
     static void DeclarationToLua(sol::table& namespace_);
+    int size();
 private:
     std::vector<Card> cards_;
 
