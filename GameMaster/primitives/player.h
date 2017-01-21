@@ -26,6 +26,7 @@ public:
     void PopFromCardHolder(const std::string& name, Deck& deck, unsigned int index);
     void PopFromCardHolder(const std::string& name, CardHolder& deck, unsigned int index);
     CardHolder& GetCardHolder(const std::string& name);
+    void MoveChip(const std::string& field, unsigned int num);
 private:
     std::map<std::string, CardHolder> card_holders_;
     std::map<std::string, std::shared_ptr<Chip>> chips_;

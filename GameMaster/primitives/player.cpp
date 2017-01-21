@@ -47,3 +47,7 @@ void Player::DeclarationToLua(sol::table &namespace_)
                                         "SetName",&Player::SetName
                                       );
 }
+
+void Player::MoveChip(const std::string& fieldname, unsigned int num){
+    chips_[fieldname]->MoveForward(num);
+}
