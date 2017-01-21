@@ -53,5 +53,15 @@ void CardHolderPtr::DeclarationToLua(sol::table &namespace_)
 {
     namespace_.new_usertype<CardHolderPtr>("CardHolderPtr",
                                         "isVisible",&CardHolderPtr::isVisible
-                                        );
+                                           );
+}
+
+std::__cxx11::string CardHolderPtr::GetIName(unsigned int index)
+{
+    return this->cardholder_->GetIName(index);
+}
+
+CardPtr CardHolderPtr::GetICard(unsigned int index)
+{
+    return this->cardholder_->GetICard(index);
 }
