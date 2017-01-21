@@ -19,6 +19,21 @@ void CardHolder::DeclarationToLua(sol::table& namespace_)
                                         );
 }
 
+void CardHolder::AddFromDeck(Deck& deck, unsigned int num, const std::string& name){
+    for (auto x:deck.PopCards(num)){
+        AddCard(name,x);
+    }
+}
+
+void CardHolder::PopToDeck(Deck& deck, unsigned int index){
+     deck.AppendCards(std::vector<Card>(1,std::get<0>(cards_[index])));
+     EraseICard(index);
+}
+
+void CardHolder::Shuffle(){
+    std::random_shuffle(cards_.begin(), cards_.end());
+}
+
 
 std::string CardHolder::GetIName(unsigned int index){
     return std::get<1>(cards_[index]);
@@ -28,11 +43,12 @@ Card& CardHolder::GetICard(unsigned int index){
     return std::get<0>(cards_[index]);
 }
 
+
 void CardHolder::EraseICard(unsigned int index){
       cards_.erase(cards_.begin()+index);
 }
 
-void CardHolder::AddCard(std::string name, Card val){
+void CardHolder::AddCard(const std::string &name, Card val){
     cards_.push_back(std::tuple<Card, std::string>(val,name));
 }
 

@@ -3,9 +3,11 @@
 
 #include <vector>
 #include <tuple>
+#include <algorithm>
 
 #include "baseobject.h"
 #include "card.h"
+#include "deck.h"
 
 class CardHolder: public BaseObject
 {
@@ -16,7 +18,10 @@ public:
     std::string GetIName(unsigned int index);
     Card& GetICard(unsigned int index);
     void EraseICard(unsigned int index);
-    void AddCard(std::string name, Card card);
+    void AddCard(const std::string& name, Card card);
+    void Shuffle();
+    void AddFromDeck(Deck& , unsigned int num = 1, const std::string& name = std::string("system"));
+    void PopToDeck(Deck&, unsigned int num = 1);
 private:
     std::vector<std::tuple<Card,std::string>> cards_;
 };
