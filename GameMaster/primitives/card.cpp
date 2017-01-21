@@ -1,10 +1,5 @@
 #include "card.h"
 
-Card::Card(): BaseObject()
-{
-
-}
-
 Card::Card(bool visible): BaseObject(visible)
 {
 
@@ -84,4 +79,9 @@ void CardPtr::SetBack(const boost::filesystem::path &back)
 void CardPtr::Show(CardPtr::ShowType val)
 {
 
+}
+
+Card& CardPtr::operator*()
+{
+    return *this->card_;
 }

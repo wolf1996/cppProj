@@ -6,7 +6,7 @@
 
 ///for CardPtr frendship
 class CardHolderPtr;
-
+class DeckPtr;
 
 class Card : public BaseObject
 {
@@ -15,8 +15,7 @@ public:
         BACK,
         FACE,
     };
-    Card();
-    Card(bool visible);
+    Card(bool visible = false);
     static void DeclarationToLua(sol::table& namespace_);
     boost::filesystem::path GetFace();
     boost::filesystem::path GetBack();
@@ -43,7 +42,9 @@ public:
     void SetFace(const boost::filesystem::path&);
     void SetBack(const boost::filesystem::path&);
     void Show(ShowType val = BACK);
+    Card& operator* ();
     friend class CardHolderPtr;
+    friend class DeckPtr;
 private:
     std::shared_ptr<Card> card_;
 };

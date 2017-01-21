@@ -9,8 +9,7 @@
 class Deck : public BaseObject
 {
 public:
-    Deck();
-    Deck(bool visible);
+    Deck(bool visible = false);
     std::vector<Card> PopCards(int num = 1);//add
     void AppendCards(std::vector<Card> cards);//add
     void Shuffle();//add
@@ -23,8 +22,12 @@ private:
 class DeckPtr: public BaseObjectPtr
 {
 public:
-    DeckPtr(std::shared_ptr<Deck> card = std::make_shared<Deck>(NULL));
+    DeckPtr(std::shared_ptr<Deck> deck = std::make_shared<Deck>(NULL));
     DeckPtr Create(bool visible = false);
+    std::vector<CardPtr> PopCards(int num = 1);//add
+    void AppendCards(std::vector<CardPtr> cards);//add
+    void Shuffle();//add
+    static void DeclarationToLua(sol::table& namespace_);
 private:
     std::shared_ptr<Deck> deck_;
 };

@@ -1,11 +1,5 @@
 #include "deck.h"
 
-
-Deck::Deck(): BaseObject()
-{
-
-}
-
 Deck::Deck(bool visible): BaseObject(visible)
 {
 
@@ -49,4 +43,21 @@ DeckPtr DeckPtr::Create(bool visible)
         return *this;
     this->deck_ = std::make_shared<Deck>(Deck(visible));
     return *this;
+}
+
+std::vector<CardPtr> DeckPtr::PopCards(int num)
+{
+    auto pop_cards = this->PopCards(num);
+    std::vector<CardPtr> result(pop_cards.size());
+    for(auto it = pop_cards.begin(); it != pop_cards.end(); ++it)
+        result.push_back(CardPtr(std::make_shared<Card>(*it)));
+    return result;
+}
+
+void DeckPtr::AppendCards(std::vector<CardPtr> cards)
+{/*
+    std::vector<Card> result(cards.size());
+    for(auto it = cards.begin(); it != cards.end(); ++it)
+        result.push_back(**it);
+    this->deck_->AppendCards(result);*/
 }
