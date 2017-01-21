@@ -50,7 +50,7 @@ DeckPtr DeckPtr::Create(bool visible)
 
 std::vector<CardPtr> DeckPtr::PopCards(int num)
 {
-    auto pop_cards = this->PopCards(num);
+    auto pop_cards = this->deck_->PopCards(num);
     std::vector<CardPtr> result(pop_cards.size());
     for(auto it = pop_cards.begin(); it != pop_cards.end(); ++it)
         result.push_back(CardPtr(std::make_shared<Card>(*it)));
@@ -58,9 +58,9 @@ std::vector<CardPtr> DeckPtr::PopCards(int num)
 }
 
 void DeckPtr::AppendCards(std::vector<CardPtr> cards)
-{/*
+{
     std::vector<Card> result(cards.size());
     for(auto it = cards.begin(); it != cards.end(); ++it)
         result.push_back(**it);
-    this->deck_->AppendCards(result);*/
+    this->deck_->AppendCards(result);
 }
