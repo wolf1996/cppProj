@@ -47,7 +47,7 @@ CardPtr::CardPtr(std::shared_ptr<Card> card): BaseObjectPtr(card)
 
 CardPtr CardPtr::Create(bool visible)
 {
-    if(!this->card_.get())
+    if(this->card_.get())
         return *this;
     this->card_ = std::make_shared<Card>(new Card(visible));
     return *this;

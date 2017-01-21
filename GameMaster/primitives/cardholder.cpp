@@ -43,7 +43,7 @@ CardHolderPtr::CardHolderPtr(std::shared_ptr<CardHolder> CH): BaseObjectPtr(CH)
 
 CardHolderPtr CardHolderPtr::Create(bool visible)
 {
-    if(this->cardholder_.get())
+    if(this->cardholder_)
         return *this;
     this->cardholder_ = std::make_shared<CardHolder>(new CardHolder(visible));
     return *this;
