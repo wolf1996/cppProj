@@ -27,4 +27,18 @@ protected:
     sol::table props_;
 };
 
+class BaseObjectPtr
+{
+public:
+    BaseObjectPtr(std::shared_ptr<BaseObject> b_obj = std::make_shared<BaseObject>(NULL));
+    virtual bool isVisible(void)
+    {
+        return this->b_obj->isVisible();
+    }
+    sol::table GetProperty(); //add
+    void SetProperty(sol::table); //add
+protected:
+    std::shared_ptr<BaseObject> b_obj;
+    sol::table props_;
+};
 #endif // BASEOBJECT_H

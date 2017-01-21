@@ -24,4 +24,23 @@ private:
     boost::filesystem::path back_;
 };
 
+class CardPtr : public BaseObjectPtr
+{
+public:
+    enum ShowType{
+        BACK,
+        FACE,
+    };
+    CardPtr(std::shared_ptr<Card> card = std::make_shared<Card>(NULL));
+    CardPtr Create(bool visible = false);
+    static void DeclarationToLua(sol::table& namespace_);
+    boost::filesystem::path GetFace();
+    boost::filesystem::path GetBack();
+    void SetFace(const boost::filesystem::path&);
+    void SetBack(const boost::filesystem::path&);
+    void Show(ShowType val = BACK);
+private:
+    std::shared_ptr<Card> card_;
+};
+
 #endif // CARD_H

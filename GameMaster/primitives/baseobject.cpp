@@ -7,3 +7,8 @@ sol::table BaseObject::GetProperty(){
 void BaseObject::SetProperty(sol::table props){
     props_ = props;
 }
+
+BaseObjectPtr::BaseObjectPtr(std::shared_ptr<BaseObject> b_obj)
+{
+    this->b_obj = b_obj;
+}

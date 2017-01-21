@@ -35,3 +35,23 @@ Card  CardHolder::EraseICard(unsigned int index){
 void CardHolder::AddCard(std::string name, Card val){
     cards_.push_back(std::tuple<Card, std::string>(val,name));
 }
+
+CardHolderPtr::CardHolderPtr(std::shared_ptr<CardHolder> CH): BaseObjectPtr(CH)
+{
+    this->cardholder_ = CH;
+}
+
+CardHolderPtr CardHolderPtr::Create(bool visible)
+{
+    if(this->cardholder_.get())
+        return *this;
+    this->cardholder_ = std::make_shared<CardHolder>(new CardHolder(visible));
+    return *this;
+}
+
+void CardHolderPtr::DeclarationToLua(sol::table &namespace_)
+{
+    namespace_.new_usertype<CardHolderPtr>("CardHolderPtr",
+                                        "isVisible",&CardHolderPtr::isVisible
+                                        );
+}

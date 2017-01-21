@@ -6,11 +6,11 @@
 
 class TableBuilder{
 public:
-    TableBuilder(sol::state& lua){}
+    TableBuilder(sol::state& lua);
     ~TableBuilder(){}
-   void Fill(ObjectManager* man);
+   void Fill(ObjectManager &man);
 private:
-    sol::state lua_;
+    sol::state& lua_;
 };
 
 #endif // TABLEBUILDER_H

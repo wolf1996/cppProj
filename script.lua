@@ -26,60 +26,81 @@ table1 = {
     },
 }
 
-var = {
-    boards = {
-        wordboard,
+var =
+{
+    boards =
+    {
+        wordboard
     },
-    decks  = {
-        gamecards = {
+    decks  =
+    {
+        gamecards =
+        {
             {
                 {
                     back = "1",
                     face = "2",
-                    props = {},
+                    props = {}
                 },
                 {
                     back = "1",
                     face = "2",
-                    props = {},
+                    props = {}
                 },
                 {
                     back = "1",
                     face = "2",
-                    props = {},
+                    props = {}
                 },
             },
         },
     },
-    cardholders = {
+    cardholders =
+    {
         picholder,
         numholder
     },
-    fields = {
-        gamefield = { num = 26,
-        },
+    fields =
+    {
+        gamefield =
+        {
+            num = 26
+        }
     },
-    player = {
-        chips = {
-            gamefield,
+    player =
+    {
+        chips =
+        {
+            gamefield
         },
-        decks = {
-            numdeck = {
+        decks =
+        {
+            numdeck =
             {
-                back = "1",
-                face = "2",
-                props = { num = 1 },
-            },
-            {
-                back = "1",
-                face = "2",
-                props = {num = 2 },
-            },
-            {
-                back = "1",
-                face = "2",
-                props = {num = 3},
-            },
+                {
+                    back = "1",
+                    face = "2",
+                    props =
+                    {
+                        num = 1
+                    }
+                },
+                {
+                    back = "1",
+                    face = "2",
+                    props =
+                    {
+                        num = 2
+                    }
+                },
+                {
+                    back = "1",
+                    face = "2",
+                    props =
+                    {
+                        num = 3
+                    }
+                },
             }
         }
 

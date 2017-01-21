@@ -15,7 +15,7 @@
 class ObjectManager
 {
 public:
-    friend class ObjectBuilder;
+    friend class TableBuilder;
     ObjectManager();
     void LoadVariables(const std::shared_ptr<ConfigFile>&);
     Deck& GetDeck(const std::string& deckname);//add1
