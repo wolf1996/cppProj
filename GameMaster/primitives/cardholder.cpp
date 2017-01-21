@@ -24,7 +24,7 @@ std::string CardHolder::GetIName(unsigned int index){
     return std::get<1>(cards_[index]);
 }
 
-Card CardHolder::GetICard(unsigned int index){
+Card& CardHolder::GetICard(unsigned int index){
     return std::get<0>(cards_[index]);
 }
 
