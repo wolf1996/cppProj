@@ -64,6 +64,7 @@ unsigned int ChipPtr::GetPosition()
 void ChipPtr::DeclarationToLua(sol::table &namespace_)
 {
     namespace_.new_usertype<ChipPtr>("ChipPtr",
+                                     "Create",&ChipPtr::Create,
                                      "isVisible",&ChipPtr::isVisible,
                                      "MoveForvard",&ChipPtr::MoveForward,
                                      "Position",sol::property(&ChipPtr::GetPosition,&ChipPtr::SetPosition)

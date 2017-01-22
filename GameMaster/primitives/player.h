@@ -34,4 +34,22 @@ private:
     std::string name_;
 };
 
+class PlayerPtr
+{
+public:
+    PlayerPtr(std::shared_ptr<Player> player = std::make_shared<Player>(NULL));
+    PlayerPtr Create();
+    void GetChip(FieldPtr*field, const std::string& name);
+    const char *GetTest(const std::string& name);
+    void SetName(const std::string& name);
+    static void DeclarationToLua(sol::table& namespace_);
+    void AddToCardHolder(const std::string&name, CardPtr & card);
+    void PopFromCardHolder(const std::string& name, DeckPtr& deck, unsigned int index);
+    void PopFromCardHolder(const std::string& name, CardHolderPtr& card_holder, unsigned int index);
+    CardHolderPtr& GetCardHolder(const std::string& name);
+    void MoveChip(const std::string& field, unsigned int num);
+private:
+    std::shared_ptr<Player> player_;
+};
+
 #endif // PLAYER_H

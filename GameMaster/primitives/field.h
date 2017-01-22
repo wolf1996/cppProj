@@ -21,4 +21,18 @@ private:
 
 };
 
+class FieldPtr : public BaseObjectPtr
+{
+public:
+    FieldPtr(std::shared_ptr<Field> field = std::make_shared<Field>(NULL));
+    FieldPtr Create(bool visible = false);
+    ChipPtr GetChip(const std::string&);//add
+    static void DeclarationToLua(sol::table& namespace_);
+    void Show();//add
+    Field& operator* ();
+private:
+    std::shared_ptr<Field> field_;
+
+};
+
 #endif // FIELD_H

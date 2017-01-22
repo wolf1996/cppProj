@@ -44,10 +44,75 @@ void Player::DeclarationToLua(sol::table &namespace_)
     namespace_.new_usertype<Player>("Player",
                                         ctor,
                                         "GetChip",&Player::GetChip,
-                                        "SetName",&Player::SetName
+                                        "SetName",&Player::SetName,
+                                        "AddToCardHolder",&Player::AddToCardHolder,
+                                        "PopFromCardHolder",&Player::PopFromCardHolder,
+                                        "GetCardHolder",&Player::GetCardHolder,
+                                        "MoveChip",&Player::MoveChip
                                       );
 }
 
 void Player::MoveChip(const std::string& fieldname, unsigned int num){
     chips_[fieldname]->MoveForward(num);
+}
+
+PlayerPtr::PlayerPtr(std::shared_ptr<Player> player) : BaseObjectPtr(player)
+{
+    this->player_ = player;
+}
+
+PlayerPtr PlayerPtr::Create()
+{
+    if(this->player_)
+        return *this;
+    this->player_ = std::make_shared<Player>(Player());
+    return *this;
+}
+
+void PlayerPtr::GetChip(FieldPtr* field, const std::string& name)
+{
+    this->player_->GetChip(*field,name);
+}
+
+void PlayerPtr::SetName(const std::__cxx11::string &name)
+{
+    this->player_->SetName(name);
+}
+
+void PlayerPtr::DeclarationToLua(sol::table &namespace_)
+{
+    namespace_.new_usertype<PlayerPtr>("PlayerPtr",
+                                       "Create",&PlayerPtr::Create,
+                                       "GetChip",&PlayerPtr::GetChip,
+                                       "SetName",&PlayerPtr::SetName,
+                                       "AddToCardHolder",&PlayerPtr::AddToCardHolder,
+                                       "PopFromCardHolder",&PlayerPtr::PopFromCardHolder,
+                                       "GetCardHolder",&PlayerPtr::GetCardHolder,
+                                       "MoveChip",&PlayerPtr::MoveChip
+                                      );
+}
+
+void PlayerPtr::AddToCardHolder(const std::string& name, CardPtr& card)
+{
+    this->player_->AddToCardHolder(name,*card);
+}
+
+void PlayerPtr::PopFromCardHolder(const std::__cxx11::string &name, DeckPtr &deck, unsigned int index)
+{
+    this->player_->PopFromCardHolder(name,*deck,index);
+}
+
+void PlayerPtr::PopFromCardHolder(const std::__cxx11::string &name, CardHolderPtr &card_holder, unsigned int index)
+{
+    this->player_->PopFromCardHolder(name,*card_holder,index);
+}
+
+CardHolderPtr &PlayerPtr::GetCardHolder(const std::__cxx11::string &name)
+{
+    return CardHolderPtr(std::make_shared<CardHolder>(this->player_->GetCardHolder(name)));
+}
+
+void PlayerPtr::MoveChip(const std::__cxx11::string &field, unsigned int num)
+{
+    this->player_->MoveChip(field,num);
 }

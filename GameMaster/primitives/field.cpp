@@ -30,3 +30,42 @@ void Field::Show()
 
 
 }
+
+FieldPtr::FieldPtr(std::shared_ptr<Field> field): BaseObjectPtr(field)
+{
+    this->field_ = field;
+}
+
+FieldPtr FieldPtr::Create(bool visible)
+{
+    if(this->field_)
+        return *this;
+    this->field_ = std::make_shared<Field>(Field(visible));
+    return *this;
+}
+
+ChipPtr FieldPtr::GetChip(const std::__cxx11::string &username)
+{
+    auto result = (this->field_->GetChip(username));
+    return ChipPtr(result);
+}
+
+void FieldPtr::DeclarationToLua(sol::table &namespace_)
+{
+    namespace_.new_usertype<FieldPtr>("FieldPtr",
+                                      "Create",&FieldPtr::Create,
+                                      "isVisible",&FieldPtr::isVisible,
+                                      "Show",&FieldPtr::Show,
+                                      "GetChip",&FieldPtr::GetChip
+                                      );
+}
+
+void FieldPtr::Show()
+{
+    this->field_->Show();
+}
+
+Field &FieldPtr::operator*()
+{
+    return *(this->field_);
+}

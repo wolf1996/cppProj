@@ -28,6 +28,7 @@ public:
     std::vector<CardPtr> PopCards(int num = 1);//add
     void AppendCards(std::vector<CardPtr> cards);//add
     void Shuffle();//add
+    Deck &operator*();
     static void DeclarationToLua(sol::table& namespace_);
 private:
     std::shared_ptr<Deck> deck_;

@@ -37,6 +37,7 @@ public:
     CardPtr GetICard(unsigned int index);
     void EraseICard(unsigned int index);
     void AddCard(std::string name, CardPtr card);
+    CardHolder& operator*();
 private:
     std::shared_ptr<CardHolder> cardholder_;
 };

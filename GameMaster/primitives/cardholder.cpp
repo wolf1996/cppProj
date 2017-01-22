@@ -101,3 +101,8 @@ void CardHolderPtr::AddCard(std::__cxx11::string name, CardPtr card)
 {
     this->cardholder_->AddCard(name,*(card.card_));
 }
+
+CardHolder &CardHolderPtr::operator*()
+{
+    return *(this->cardholder_);
+}

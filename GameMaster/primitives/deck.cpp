@@ -64,3 +64,24 @@ void DeckPtr::AppendCards(std::vector<CardPtr> cards)
         result.push_back(**it);
     this->deck_->AppendCards(result);
 }
+
+void DeckPtr::Shuffle()
+{
+    this->deck_->Shuffle();
+}
+
+Deck& DeckPtr::operator*()
+{
+    return *(this->deck_);
+}
+
+void DeckPtr::DeclarationToLua(sol::table &namespace_)
+{
+    namespace_.new_usertype<DeckPtr>("DeckPtr",
+                                     "Create",&DeckPtr::Create,
+                                     "isVisible",&DeckPtr::isVisible,
+                                     "PopCards",&DeckPtr::PopCards,
+                                     "AppendCards",&DeckPtr::AppendCards,
+                                     "Shuffle",&DeckPtr::Shuffle
+                                    );
+}
