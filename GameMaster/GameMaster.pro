@@ -9,8 +9,6 @@ SOURCES += main.cpp \
     configfilelua.cpp \
     objectmanager.cpp \
     primitives/field.cpp \
-    primitives/player.cpp \
-    primitives/messagebox.cpp\
     primitives/cardholder.cpp \
     primitives/deck.cpp \
     scriptmanager.cpp \
@@ -31,8 +29,6 @@ HEADERS += \
     configfilelua.h \
     objectmanager.h \
     primitives/field.h \
-    primitives/player.h \
-    primitives/messagebox.h \
     primitives/cardholder.h \
     primitives/deck.h \
     scriptmanager.h \

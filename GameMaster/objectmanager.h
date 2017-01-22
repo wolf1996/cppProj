@@ -21,14 +21,14 @@ public:
     Deck& GetDeck(const std::string& deckname);//add1
     Field& GetField(const std::string& );//add
     CardHolder& GetCardHolder(const std::string& );//add
-    Player& GetPlayer(const std::string& );//add
+    //Player& GetPlayer(const std::string& );//add
     InfoBoard& GetInfoBoard(const std::string& );//add
-    Player& GetTest(const std::string& name);//add
+    //Player& GetTest(const std::string& name);//add
 private:
     std::shared_ptr<ConfigFile> config_;
     std::map<std::string, CardHolder> card_holders_;
     std::map<std::string, Field> fields_;
-    std::map<std::string, Player> players_;
+    //std::map<std::string, Player> players_;
     std::map<std::string, Deck> decks_;
     std::map<std::string, InfoBoard> info_boards_;
 };

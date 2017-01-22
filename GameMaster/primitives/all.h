@@ -6,7 +6,5 @@
 #include "cardholder.h"
 #include "deck.h"
 #include "field.h"
-#include "messagebox.h"
-#include "player.h"
 #include "card.h"
 #endif // ALL_H

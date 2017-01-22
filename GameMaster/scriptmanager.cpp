@@ -15,7 +15,6 @@ LoadObject()
     Deck::DeclarationToLua(this->namespace_);
     Field::DeclarationToLua(this->namespace_);
     InfoBoard::DeclarationToLua(this->namespace_);
-    Player::DeclarationToLua(this->namespace_);
 }
 
 void ScriptManager::LoadScript()
