@@ -1,10 +1,8 @@
 TEMPLATE = app
 CONFIG += console c++14
 CONFIG -= app_bundle
-CONFIG += qt
-QT       += core gui
+CONFIG -= qt
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = GameMaster
 SOURCES += main.cpp \
     gamemasterapp.cpp \
