@@ -1,8 +1,11 @@
 TEMPLATE = app
 CONFIG += console c++14
 CONFIG -= app_bundle
-CONFIG -= qt
+CONFIG += qt
+QT       += core gui
 
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+TARGET = GameMaster
 SOURCES += main.cpp \
     gamemasterapp.cpp \
     configfile.cpp \
@@ -23,6 +26,7 @@ LIBS += -llua5.2\
         -lboost_system\
         -lboost_filesystem\
 
+
 HEADERS += \
     gamemasterapp.h \
     configfile.h \
@@ -41,3 +45,4 @@ HEADERS += \
 
 DISTFILES += \
     ../script.lua
+
