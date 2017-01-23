@@ -40,7 +40,7 @@ CardHolder& Player::GetCardHolder(const std::string& name){
 
 void Player::DeclarationToLua(sol::table &namespace_)
 {
-    sol::constructors<sol::types<>> ctor;
+   /* sol::constructors<sol::types<>> ctor;
     namespace_.new_usertype<Player>("Player",
                                         ctor,
                                         "GetChip",&Player::GetChip,
@@ -49,14 +49,14 @@ void Player::DeclarationToLua(sol::table &namespace_)
                                         "PopFromCardHolder",&Player::PopFromCardHolder,
                                         "GetCardHolder",&Player::GetCardHolder,
                                         "MoveChip",&Player::MoveChip
-                                      );
+                                      );*/
 }
 
 void Player::MoveChip(const std::string& fieldname, unsigned int num){
     chips_[fieldname]->MoveForward(num);
 }
 
-PlayerPtr::PlayerPtr(std::shared_ptr<Player> player) : BaseObjectPtr(player)
+PlayerPtr::PlayerPtr(std::shared_ptr<Player> player)
 {
     this->player_ = player;
 }
@@ -69,9 +69,9 @@ PlayerPtr PlayerPtr::Create()
     return *this;
 }
 
-void PlayerPtr::GetChip(FieldPtr* field, const std::string& name)
+void PlayerPtr::GetChip(FieldPtr field, const std::string& name)
 {
-    this->player_->GetChip(*field,name);
+    this->player_->GetChip(&(*field),name); // крайне спорный момент!
 }
 
 void PlayerPtr::SetName(const std::__cxx11::string &name)
@@ -109,7 +109,7 @@ void PlayerPtr::PopFromCardHolder(const std::__cxx11::string &name, CardHolderPt
 
 CardHolderPtr &PlayerPtr::GetCardHolder(const std::__cxx11::string &name)
 {
-    return CardHolderPtr(std::make_shared<CardHolder>(this->player_->GetCardHolder(name)));
+    return CardHolderPtr(std::shared_ptr<CardHolder>(this->player_->GetCardHolder(name)));
 }
 
 void PlayerPtr::MoveChip(const std::__cxx11::string &field, unsigned int num)

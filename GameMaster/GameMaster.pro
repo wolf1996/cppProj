@@ -17,7 +17,8 @@ SOURCES += main.cpp \
     primitives/infoboard.cpp \
     primitives/baseobject.cpp \
     primitives/card.cpp \
-    tablebuilder.cpp
+    tablebuilder.cpp \
+    primitives/player.cpp
 INCLUDEPATH += Lua/Lua.5.2.0/src
 INCLUDEPATH += single/sol
 LIBS += -llua5.2\
@@ -39,7 +40,8 @@ HEADERS += \
     primitives/infoboard.h \
     primitives/baseobject.h \
     primitives/card.h \
-    tablebuilder.h
+    tablebuilder.h \
+    primitives/player.h
 
 DISTFILES += \
     ../script.lua

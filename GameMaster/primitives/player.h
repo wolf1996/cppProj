@@ -39,7 +39,7 @@ class PlayerPtr
 public:
     PlayerPtr(std::shared_ptr<Player> player = std::make_shared<Player>(NULL));
     PlayerPtr Create();
-    void GetChip(FieldPtr*field, const std::string& name);
+    void GetChip(FieldPtr field, const std::string& name);
     const char *GetTest(const std::string& name);
     void SetName(const std::string& name);
     static void DeclarationToLua(sol::table& namespace_);
